@@ -67,6 +67,10 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			"username": creds["username"],
 			"password": creds["password"],
 		}*/
+		ociCreds := map[string]string{}
+		if err := json.Unmarshal(data, &ociCreds); err != nil {
+			return ps, errors.Wrap(err, errUnmarshalCredentials)
+		}
 		// Set credentials in Terraform provider configuration.
 		ps.Configuration = map[string]interface{}{
 			"tenancy_ocid":     ociCreds["tenancy_ocid"],
