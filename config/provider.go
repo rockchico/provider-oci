@@ -10,7 +10,8 @@ import (
 
 	ujconfig "github.com/crossplane/upjet/pkg/config"
 
-	"github.com/rockchico/provider-oci/config/null"
+	//"github.com/rockchico/provider-oci/config/null"
+	"github.com/rockchico/provider-oci/config/artifacts"
 )
 
 const (
