@@ -16,7 +16,7 @@ import (
 type ContainerRepositoryInitParameters struct {
 
 	// (Updatable) The OCID of the compartment in which to create the resource.
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/identity/v1alpha1.Compartment
+	// +crossplane:generate:reference:type=github.com/rockchico/provider-oci/apis/identity/v1alpha1.Compartment
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
 
 	// Reference to a Compartment in identity to populate compartmentId.
@@ -111,7 +111,7 @@ type ContainerRepositoryObservation struct {
 type ContainerRepositoryParameters struct {
 
 	// (Updatable) The OCID of the compartment in which to create the resource.
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/identity/v1alpha1.Compartment
+	// +crossplane:generate:reference:type=github.com/rockchico/provider-oci/apis/identity/v1alpha1.Compartment
 	// +kubebuilder:validation:Optional
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
 

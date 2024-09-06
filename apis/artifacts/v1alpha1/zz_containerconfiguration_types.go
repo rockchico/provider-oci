@@ -15,7 +15,7 @@ import (
 
 type ContainerConfigurationInitParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/identity/v1alpha1.Compartment
+	// +crossplane:generate:reference:type=github.com/rockchico/provider-oci/apis/identity/v1alpha1.Compartment
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
 
 	// Reference to a Compartment in identity to populate compartmentId.
@@ -44,7 +44,7 @@ type ContainerConfigurationObservation struct {
 
 type ContainerConfigurationParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/identity/v1alpha1.Compartment
+	// +crossplane:generate:reference:type=github.com/rockchico/provider-oci/apis/identity/v1alpha1.Compartment
 	// +kubebuilder:validation:Optional
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
 

@@ -9,8 +9,8 @@ package v1alpha1
 import (
 	"context"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
-	v1alpha1 "github.com/oracle/provider-oci/apis/identity/v1alpha1"
 	errors "github.com/pkg/errors"
+	v1alpha1 "github.com/rockchico/provider-oci/apis/identity/v1alpha1"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 
