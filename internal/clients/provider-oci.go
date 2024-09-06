@@ -15,7 +15,7 @@ import (
 
 	"github.com/crossplane/upjet/pkg/terraform"
 
-	"github.com/upbound/upjet-provider-template/apis/v1beta1"
+	"github.com/rockchico/provider-oci/apis/v1beta1"
 )
 
 const (
@@ -24,7 +24,7 @@ const (
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
-	errUnmarshalCredentials = "cannot unmarshal template credentials as JSON"
+	errUnmarshalCredentials = "cannot unmarshal provider-oci credentials as JSON"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -67,6 +67,15 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			"username": creds["username"],
 			"password": creds["password"],
 		}*/
+		// Set credentials in Terraform provider configuration.
+		ps.Configuration = map[string]interface{}{
+			"tenancy_ocid":     ociCreds["tenancy_ocid"],
+			"user_ocid":        ociCreds["user_ocid"],
+			"private_key":      ociCreds["private_key"],
+			"private_key_path": ociCreds["private_key_path"],
+			"fingerprint":      ociCreds["fingerprint"],
+			"region":           ociCreds["region"],
+		}
 		return ps, nil
 	}
 }

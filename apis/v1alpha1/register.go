@@ -13,7 +13,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "template.upbound.io"
+	Group   = "provider-oci.rockchico.dev"
 	Version = "v1alpha1"
 )
 
