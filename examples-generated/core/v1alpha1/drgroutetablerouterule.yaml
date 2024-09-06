@@ -1,0 +1,14 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: DrgRouteTableRouteRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/drgroutetablerouterule
+  labels:
+    testing.upbound.io/example-name: test_drg_route_table_route_rule
+  name: test-drg-route-table-route-rule
+spec:
+  forProvider:
+    destination: ${var.drg_route_table_route_rule_route_rules_destination}
+    destinationType: ${var.drg_route_table_route_rule_route_rules_destination_type}
+    drgRouteTableId: ${oci_core_drg_route_table.test_drg_route_table.id}
+    nextHopDrgAttachmentId: ${oci_core_drg_attachment.test_drg_attachment.id}

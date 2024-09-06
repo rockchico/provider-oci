@@ -1,0 +1,13 @@
+apiVersion: load.rockchico.dev/v1alpha1
+kind: BalancerSSLCipherSuite
+metadata:
+  annotations:
+    meta.upbound.io/example-id: load/v1alpha1/balancersslciphersuite
+  labels:
+    testing.upbound.io/example-name: test_ssl_cipher_suite
+  name: test-ssl-cipher-suite
+spec:
+  forProvider:
+    ciphers: ${var.ssl_cipher_suite_ciphers}
+    loadBalancerId: ${oci_load_balancer_load_balancer.test_load_balancer.id}
+    name: ${var.ssl_cipher_suite_name}

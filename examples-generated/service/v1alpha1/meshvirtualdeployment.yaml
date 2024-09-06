@@ -1,0 +1,28 @@
+apiVersion: service.rockchico.dev/v1alpha1
+kind: MeshVirtualDeployment
+metadata:
+  annotations:
+    meta.upbound.io/example-id: service/v1alpha1/meshvirtualdeployment
+  labels:
+    testing.upbound.io/example-name: test_virtual_deployment
+  name: test-virtual-deployment
+spec:
+  forProvider:
+    accessLogging:
+    - isEnabled: ${var.virtual_deployment_access_logging_is_enabled}
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      foo-namespace.bar-key: value
+    description: ${var.virtual_deployment_description}
+    freeformTags:
+      bar-key: value
+    listeners:
+    - idleTimeoutInMs: ${var.virtual_deployment_listeners_idle_timeout_in_ms}
+      port: ${var.virtual_deployment_listeners_port}
+      protocol: ${var.virtual_deployment_listeners_protocol}
+      requestTimeoutInMs: ${var.virtual_deployment_listeners_request_timeout_in_ms}
+    name: ${var.virtual_deployment_name}
+    serviceDiscovery:
+    - hostname: ${var.virtual_deployment_service_discovery_hostname}
+      type: ${var.virtual_deployment_service_discovery_type}
+    virtualServiceId: ${oci_service_mesh_virtual_service.test_virtual_service.id}

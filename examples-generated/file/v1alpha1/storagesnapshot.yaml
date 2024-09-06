@@ -1,0 +1,17 @@
+apiVersion: file.rockchico.dev/v1alpha1
+kind: StorageSnapshot
+metadata:
+  annotations:
+    meta.upbound.io/example-id: file/v1alpha1/storagesnapshot
+  labels:
+    testing.upbound.io/example-name: test_snapshot
+  name: test-snapshot
+spec:
+  forProvider:
+    definedTags:
+      Operations.CostCenter: "42"
+    expirationTime: ${var.snapshot_expiration_time}
+    fileSystemId: ${oci_file_storage_file_system.test_file_system.id}
+    freeformTags:
+      Department: Finance
+    name: ${var.snapshot_name}

@@ -1,0 +1,19 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: DHCPOptions
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/dhcpoptions
+  labels:
+    testing.upbound.io/example-name: test_dhcp_options
+  name: test-dhcp-options
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    displayName: ${var.dhcp_options_display_name}
+    options:
+    - serverType: VcnLocalPlusInternet
+      type: DomainNameServer
+    - searchDomainNames:
+      - test.com
+      type: SearchDomain
+    vcnId: ${oci_core_vcn.test_vcn.id}

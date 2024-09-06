@@ -1,0 +1,16 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: DrgAttachmentManagement
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/drgattachmentmanagement
+  labels:
+    testing.upbound.io/example-name: test_drg_rpc_attachment
+  name: test-drg-rpc-attachment
+spec:
+  forProvider:
+    attachmentType: REMOTE_PEERING_CONNECTION
+    compartmentId: ${var.compartment_ocid}
+    displayName: MyTestDrgAttachmentForRpc
+    drgId: ${oci_core_drg.test_drg.id}
+    drgRouteTableId: ${oci_core_drg_route_table.test_drg_route_table.id}
+    networkId: ${oci_core_remote_peering_connection.test_rpc.id}

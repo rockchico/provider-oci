@@ -1,0 +1,13 @@
+apiVersion: load.rockchico.dev/v1alpha1
+kind: BalancerHostname
+metadata:
+  annotations:
+    meta.upbound.io/example-id: load/v1alpha1/balancerhostname
+  labels:
+    testing.upbound.io/example-name: test_hostname
+  name: test-hostname
+spec:
+  forProvider:
+    hostname: ${var.hostname_hostname}
+    loadBalancerId: ${oci_load_balancer_load_balancer.test_load_balancer.id}
+    name: ${var.hostname_name}

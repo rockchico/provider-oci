@@ -1,0 +1,18 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: VolumeGroupBackup
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/volumegroupbackup
+  labels:
+    testing.upbound.io/example-name: test_volume_group_backup
+  name: test-volume-group-backup
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.volume_group_backup_display_name}
+    freeformTags:
+      Department: Finance
+    type: ${var.volume_group_backup_type}
+    volumeGroupId: ${oci_core_volume_group.test_volume_group.id}

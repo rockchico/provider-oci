@@ -1,0 +1,34 @@
+apiVersion: load.rockchico.dev/v1alpha1
+kind: BalancerListener
+metadata:
+  annotations:
+    meta.upbound.io/example-id: load/v1alpha1/balancerlistener
+  labels:
+    testing.upbound.io/example-name: test_listener
+  name: test-listener
+spec:
+  forProvider:
+    connectionConfiguration:
+    - backendTcpProxyProtocolVersion: ${var.listener_connection_configuration_backend_tcp_proxy_protocol_version}
+      idleTimeoutInSeconds: ${var.listener_connection_configuration_idle_timeout_in_seconds}
+    defaultBackendSetName: ${var.backend_set_name}
+    hostnameNames:
+    - ${oci_load_balancer_hostname.test_hostname.name}
+    loadBalancerId: ${oci_load_balancer_load_balancer.test_load_balancer.id}
+    name: ${var.listener_name}
+    pathRouteSetName: ${var.path_route_set_name}
+    port: ${var.listener_port}
+    protocol: ${var.listener_protocol}
+    routingPolicyName: ${var.load_balancer_routing_policy_name}
+    ruleSetNames:
+    - ${oci_load_balancer_rule_set.test_rule_set.name}
+    sslConfiguration:
+    - certificateIds: ${var.listener_ssl_configuration_certificate_ids}
+      certificateName: ${oci_load_balancer_certificate.test_certificate.name}
+      cipherSuiteName: ${var.listener_ssl_configuration_cipher_suite_name}
+      hasSessionResumption: ${var.listener_ssl_configuration_has_session_resumption}
+      protocols: ${var.listener_ssl_configuration_protocols}
+      serverOrderPreference: ${var.listener_ssl_configuration_server_order_preference}
+      trustedCertificateAuthorityIds: ${var.listener_ssl_configuration_trusted_certificate_authority_ids}
+      verifyDepth: ${var.listener_ssl_configuration_verify_depth}
+      verifyPeerCertificate: ${var.listener_ssl_configuration_verify_peer_certificate}

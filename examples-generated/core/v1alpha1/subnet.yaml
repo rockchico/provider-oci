@@ -1,0 +1,27 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: Subnet
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/subnet
+  labels:
+    testing.upbound.io/example-name: test_subnet
+  name: test-subnet
+spec:
+  forProvider:
+    availabilityDomain: ${var.subnet_availability_domain}
+    cidrBlock: ${var.subnet_cidr_block}
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    dhcpOptionsId: ${oci_core_dhcp_options.test_dhcp_options.id}
+    displayName: ${var.subnet_display_name}
+    dnsLabel: ${var.subnet_dns_label}
+    freeformTags:
+      Department: Finance
+    ipv6cidrBlock: ${var.subnet_ipv6cidr_block}
+    ipv6cidrBlocks: ${var.subnet_ipv6cidr_blocks}
+    prohibitInternetIngress: ${var.subnet_prohibit_internet_ingress}
+    prohibitPublicIpOnVnic: ${var.subnet_prohibit_public_ip_on_vnic}
+    routeTableId: ${oci_core_route_table.test_route_table.id}
+    securityListIds: ${var.subnet_security_list_ids}
+    vcnId: ${oci_core_vcn.test_vcn.id}

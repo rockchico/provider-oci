@@ -1,0 +1,15 @@
+apiVersion: functions.rockchico.dev/v1alpha1
+kind: InvokeFunction
+metadata:
+  annotations:
+    meta.upbound.io/example-id: functions/v1alpha1/invokefunction
+  labels:
+    testing.upbound.io/example-name: test_invoke_function
+  name: test-invoke-function
+spec:
+  forProvider:
+    base64EncodeContent: false
+    fnIntent: ${var.invoke_function_fn_intent}
+    fnInvokeType: ${var.invoke_function_fn_invoke_type}
+    functionId: ${oci_functions_function.test_function.id}
+    invokeFunctionBody: ${var.invoke_function_invoke_function_body}

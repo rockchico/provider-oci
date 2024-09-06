@@ -1,0 +1,13 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: PublicIPPoolCapacity
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/publicippoolcapacity
+  labels:
+    testing.upbound.io/example-name: test_public_ip_pool_capacity
+  name: test-public-ip-pool-capacity
+spec:
+  forProvider:
+    byoipId: ${var.byoip_id}
+    cidrBlock: ${var.cidr_block}
+    publicIpPoolId: ${var.public_ip_pool_id}

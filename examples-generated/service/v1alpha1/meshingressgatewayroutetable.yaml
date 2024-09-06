@@ -1,0 +1,34 @@
+apiVersion: service.rockchico.dev/v1alpha1
+kind: MeshIngressGatewayRouteTable
+metadata:
+  annotations:
+    meta.upbound.io/example-id: service/v1alpha1/meshingressgatewayroutetable
+  labels:
+    testing.upbound.io/example-name: test_ingress_gateway_route_table
+  name: test-ingress-gateway-route-table
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      foo-namespace.bar-key: value
+    description: ${var.ingress_gateway_route_table_description}
+    freeformTags:
+      bar-key: value
+    ingressGatewayId: ${oci_service_mesh_ingress_gateway.test_ingress_gateway.id}
+    name: ${var.ingress_gateway_route_table_name}
+    priority: ${var.ingress_gateway_route_table_priority}
+    routeRules:
+    - destinations:
+      - port: ${var.ingress_gateway_route_table_route_rules_destinations_port}
+        virtualServiceId: ${oci_service_mesh_virtual_service.test_virtual_service.id}
+        weight: ${var.ingress_gateway_route_table_route_rules_destinations_weight}
+      ingressGatewayHost:
+      - name: ${var.ingress_gateway_route_table_route_rules_ingress_gateway_host_name}
+        port: ${var.ingress_gateway_route_table_route_rules_ingress_gateway_host_port}
+      isGrpc: ${var.ingress_gateway_route_table_route_rules_is_grpc}
+      isHostRewriteEnabled: ${var.ingress_gateway_route_table_route_rules_is_host_rewrite_enabled}
+      isPathRewriteEnabled: ${var.ingress_gateway_route_table_route_rules_is_path_rewrite_enabled}
+      path: ${var.ingress_gateway_route_table_route_rules_path}
+      pathType: ${var.ingress_gateway_route_table_route_rules_path_type}
+      requestTimeoutInMs: ${var.ingress_gateway_route_table_route_rules_request_timeout_in_ms}
+      type: ${var.ingress_gateway_route_table_route_rules_type}

@@ -1,0 +1,20 @@
+apiVersion: dns.rockchico.dev/v1alpha1
+kind: ResolverEndpoint
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/resolverendpoint
+  labels:
+    testing.upbound.io/example-name: test_resolver_endpoint
+  name: test-resolver-endpoint
+spec:
+  forProvider:
+    endpointType: ${var.resolver_endpoint_endpoint_type}
+    forwardingAddress: ${var.resolver_endpoint_forwarding_address}
+    isForwarding: ${var.resolver_endpoint_is_forwarding}
+    isListening: ${var.resolver_endpoint_is_listening}
+    listeningAddress: ${var.resolver_endpoint_listening_address}
+    name: ${var.resolver_endpoint_name}
+    nsgIds: ${var.resolver_endpoint_nsg_ids}
+    resolverId: ${oci_dns_resolver.test_resolver.id}
+    scope: PRIVATE
+    subnetId: ${oci_core_subnet.test_subnet.id}

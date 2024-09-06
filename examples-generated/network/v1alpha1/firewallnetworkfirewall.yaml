@@ -1,0 +1,22 @@
+apiVersion: network.rockchico.dev/v1alpha1
+kind: FirewallNetworkFirewall
+metadata:
+  annotations:
+    meta.upbound.io/example-id: network/v1alpha1/firewallnetworkfirewall
+  labels:
+    testing.upbound.io/example-name: test_network_firewall
+  name: test-network-firewall
+spec:
+  forProvider:
+    availabilityDomain: ${var.network_firewall_availability_domain}
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.network_firewall_display_name}
+    freeformTags:
+      Department: Finance
+    ipv4address: ${var.network_firewall_ipv4address}
+    ipv6address: ${var.network_firewall_ipv6address}
+    networkFirewallPolicyId: ${oci_network_firewall_network_firewall_policy.test_network_firewall_policy.id}
+    networkSecurityGroupIds: ${var.network_firewall_network_security_group_ids}
+    subnetId: ${oci_core_subnet.test_subnet.id}

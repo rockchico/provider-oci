@@ -1,0 +1,23 @@
+apiVersion: file.rockchico.dev/v1alpha1
+kind: StorageExport
+metadata:
+  annotations:
+    meta.upbound.io/example-id: file/v1alpha1/storageexport
+  labels:
+    testing.upbound.io/example-name: test_export
+  name: test-export
+spec:
+  forProvider:
+    exportOptions:
+    - access: ${var.export_export_options_access}
+      allowedAuth: ${var.export_export_options_allowed_auth}
+      anonymousGid: ${var.export_export_options_anonymous_gid}
+      anonymousUid: ${var.export_export_options_anonymous_uid}
+      identitySquash: ${var.export_export_options_identity_squash}
+      isAnonymousAccessAllowed: ${var.export_export_options_is_anonymous_access_allowed}
+      requirePrivilegedSourcePort: ${var.export_export_options_require_privileged_source_port}
+      source: ${var.export_export_options_source}
+    exportSetId: ${oci_file_storage_export_set.test_export_set.id}
+    fileSystemId: ${oci_file_storage_file_system.test_file_system.id}
+    isIdmapGroupsForSysAuth: ${var.export_is_idmap_groups_for_sys_auth}
+    path: ${var.export_path}

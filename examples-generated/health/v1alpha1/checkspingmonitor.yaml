@@ -1,0 +1,23 @@
+apiVersion: health.rockchico.dev/v1alpha1
+kind: ChecksPingMonitor
+metadata:
+  annotations:
+    meta.upbound.io/example-id: health/v1alpha1/checkspingmonitor
+  labels:
+    testing.upbound.io/example-name: test_ping_monitor
+  name: test-ping-monitor
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.ping_monitor_display_name}
+    freeformTags:
+      Department: Finance
+    intervalInSeconds: ${var.ping_monitor_interval_in_seconds}
+    isEnabled: ${var.ping_monitor_is_enabled}
+    port: ${var.ping_monitor_port}
+    protocol: ${var.ping_monitor_protocol}
+    targets: ${var.ping_monitor_targets}
+    timeoutInSeconds: ${var.ping_monitor_timeout_in_seconds}
+    vantagePointNames: ${var.ping_monitor_vantage_point_names}

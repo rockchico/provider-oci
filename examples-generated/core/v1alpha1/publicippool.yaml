@@ -1,0 +1,16 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: PublicIPPool
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/publicippool
+  labels:
+    testing.upbound.io/example-name: test_public_ip_pool
+  name: test-public-ip-pool
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.public_ip_pool_display_name}
+    freeformTags:
+      Department: Finance

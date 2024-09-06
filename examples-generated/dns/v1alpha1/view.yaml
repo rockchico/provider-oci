@@ -1,0 +1,15 @@
+apiVersion: dns.rockchico.dev/v1alpha1
+kind: View
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/view
+  labels:
+    testing.upbound.io/example-name: test_view
+  name: test-view
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags: ${var.view_defined_tags}
+    displayName: ${var.view_display_name}
+    freeformTags: ${var.view_freeform_tags}
+    scope: PRIVATE

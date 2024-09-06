@@ -1,0 +1,23 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: RouteTable
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/routetable
+  labels:
+    testing.upbound.io/example-name: test_route_table
+  name: test-route-table
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.route_table_display_name}
+    freeformTags:
+      Department: Finance
+    routeRules:
+    - cidrBlock: ${var.route_table_route_rules_cidr_block}
+      description: ${var.route_table_route_rules_description}
+      destination: ${var.route_table_route_rules_destination}
+      destinationType: ${var.route_table_route_rules_destination_type}
+      networkEntityId: ${oci_core_internet_gateway.test_internet_gateway.id}
+    vcnId: ${oci_core_vcn.test_vcn.id}

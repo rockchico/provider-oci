@@ -1,0 +1,25 @@
+apiVersion: streaming.rockchico.dev/v1alpha1
+kind: StreamPool
+metadata:
+  annotations:
+    meta.upbound.io/example-id: streaming/v1alpha1/streampool
+  labels:
+    testing.upbound.io/example-name: test_stream_pool
+  name: test-stream-pool
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    customEncryptionKey:
+    - kmsKeyId: ${oci_kms_key.test_key.id}
+    definedTags: ${var.stream_pool_defined_tags}
+    freeformTags:
+      Department: Finance
+    kafkaSettings:
+    - autoCreateTopicsEnable: ${var.stream_pool_kafka_settings_auto_create_topics_enable}
+      logRetentionHours: ${var.stream_pool_kafka_settings_log_retention_hours}
+      numPartitions: ${var.stream_pool_kafka_settings_num_partitions}
+    name: ${var.stream_pool_name}
+    privateEndpointSettings:
+    - nsgIds: ${var.stream_pool_private_endpoint_settings_nsg_ids}
+      privateEndpointIp: ${var.stream_pool_private_endpoint_settings_private_endpoint_ip}
+      subnetId: ${oci_core_subnet.test_subnet.id}

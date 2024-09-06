@@ -1,0 +1,21 @@
+apiVersion: file.rockchico.dev/v1alpha1
+kind: StorageFileSystem
+metadata:
+  annotations:
+    meta.upbound.io/example-id: file/v1alpha1/storagefilesystem
+  labels:
+    testing.upbound.io/example-name: test_file_system
+  name: test-file-system
+spec:
+  forProvider:
+    availabilityDomain: ${var.file_system_availability_domain}
+    cloneAttachStatus: ${var.file_system_clone_attach_status}
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.file_system_display_name}
+    filesystemSnapshotPolicyId: ${oci_file_storage_filesystem_snapshot_policy.test_filesystem_snapshot_policy.id}
+    freeformTags:
+      Department: Finance
+    kmsKeyId: ${oci_kms_key.test_key.id}
+    sourceSnapshotId: ${oci_file_storage_snapshot.test_snapshot.id}

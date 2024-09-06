@@ -1,0 +1,17 @@
+apiVersion: load.rockchico.dev/v1alpha1
+kind: BalancerPathRouteSet
+metadata:
+  annotations:
+    meta.upbound.io/example-id: load/v1alpha1/balancerpathrouteset
+  labels:
+    testing.upbound.io/example-name: test_path_route_set
+  name: test-path-route-set
+spec:
+  forProvider:
+    loadBalancerId: ${oci_load_balancer_load_balancer.test_load_balancer.id}
+    name: ${var.path_route_set_name}
+    pathRoutes:
+    - backendSetName: ${var.backend_set_name}
+      path: ${var.path_route_set_path_routes_path}
+      pathMatchType:
+      - matchType: ${var.path_route_set_path_routes_path_match_type_match_type}

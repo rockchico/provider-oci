@@ -1,0 +1,21 @@
+apiVersion: core.rockchico.dev/v1alpha1
+kind: Ipsec
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/ipsec
+  labels:
+    testing.upbound.io/example-name: test_ip_sec_connection
+  name: test-ip-sec-connection
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    cpeId: ${oci_core_cpe.test_cpe.id}
+    cpeLocalIdentifier: ${var.ip_sec_connection_cpe_local_identifier}
+    cpeLocalIdentifierType: ${var.ip_sec_connection_cpe_local_identifier_type}
+    definedTags:
+      Operations.CostCenter: "42"
+    displayName: ${var.ip_sec_connection_display_name}
+    drgId: ${oci_core_drg.test_drg.id}
+    freeformTags:
+      Department: Finance
+    staticRoutes: ${var.ip_sec_connection_static_routes}

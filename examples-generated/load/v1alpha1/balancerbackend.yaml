@@ -1,0 +1,19 @@
+apiVersion: load.rockchico.dev/v1alpha1
+kind: BalancerBackend
+metadata:
+  annotations:
+    meta.upbound.io/example-id: load/v1alpha1/balancerbackend
+  labels:
+    testing.upbound.io/example-name: test_backend
+  name: test-backend
+spec:
+  forProvider:
+    backendsetName: ${var.backend_set_name}
+    backup: ${var.backend_backup}
+    drain: ${var.backend_drain}
+    ipAddress: ${var.backend_ip_address}
+    loadBalancerId: ${oci_load_balancer_load_balancer.test_load_balancer.id}
+    maxConnections: ${var.backend_max_connections}
+    offline: ${var.backend_offline}
+    port: ${var.backend_port}
+    weight: ${var.backend_weight}

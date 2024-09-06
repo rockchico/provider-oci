@@ -37,7 +37,8 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		// null.Configure,
+		artifacts.Configure,
 	} {
 		configure(pc)
 	}

@@ -1,0 +1,29 @@
+apiVersion: service.rockchico.dev/v1alpha1
+kind: MeshVirtualServiceRouteTable
+metadata:
+  annotations:
+    meta.upbound.io/example-id: service/v1alpha1/meshvirtualserviceroutetable
+  labels:
+    testing.upbound.io/example-name: test_virtual_service_route_table
+  name: test-virtual-service-route-table
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      foo-namespace.bar-key: value
+    description: ${var.virtual_service_route_table_description}
+    freeformTags:
+      bar-key: value
+    name: ${var.virtual_service_route_table_name}
+    priority: ${var.virtual_service_route_table_priority}
+    routeRules:
+    - destinations:
+      - port: ${var.virtual_service_route_table_route_rules_destinations_port}
+        virtualDeploymentId: ${oci_service_mesh_virtual_deployment.test_virtual_deployment.id}
+        weight: ${var.virtual_service_route_table_route_rules_destinations_weight}
+      isGrpc: ${var.virtual_service_route_table_route_rules_is_grpc}
+      path: ${var.virtual_service_route_table_route_rules_path}
+      pathType: ${var.virtual_service_route_table_route_rules_path_type}
+      requestTimeoutInMs: ${var.virtual_service_route_table_route_rules_request_timeout_in_ms}
+      type: ${var.virtual_service_route_table_route_rules_type}
+    virtualServiceId: ${oci_service_mesh_virtual_service.test_virtual_service.id}

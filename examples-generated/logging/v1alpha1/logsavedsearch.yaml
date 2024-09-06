@@ -1,0 +1,18 @@
+apiVersion: logging.rockchico.dev/v1alpha1
+kind: LogSavedSearch
+metadata:
+  annotations:
+    meta.upbound.io/example-id: logging/v1alpha1/logsavedsearch
+  labels:
+    testing.upbound.io/example-name: test_log_saved_search
+  name: test-log-saved-search
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    description: ${var.log_saved_search_description}
+    freeformTags:
+      Department: Finance
+    name: ${var.log_saved_search_name}
+    query: ${var.log_saved_search_query}

@@ -1,0 +1,25 @@
+apiVersion: dns.rockchico.dev/v1alpha1
+kind: Zone
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/zone
+  labels:
+    testing.upbound.io/example-name: test_zone
+  name: test-zone
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags: ${var.zone_defined_tags}
+    externalDownstreams:
+    - address: ${var.zone_external_downstreams_address}
+      port: ${var.zone_external_downstreams_port}
+      tsigKeyId: ${oci_dns_tsig_key.test_tsig_key.id}
+    externalMasters:
+    - address: ${var.zone_external_masters_address}
+      port: ${var.zone_external_masters_port}
+      tsigKeyId: ${oci_dns_tsig_key.test_tsig_key.id}
+    freeformTags: ${var.zone_freeform_tags}
+    name: ${var.zone_name}
+    scope: ${var.zone_scope}
+    viewId: ${oci_dns_view.test_view.id}
+    zoneType: ${var.zone_zone_type}

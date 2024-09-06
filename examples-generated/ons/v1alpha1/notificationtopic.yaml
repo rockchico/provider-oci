@@ -1,0 +1,17 @@
+apiVersion: ons.rockchico.dev/v1alpha1
+kind: NotificationTopic
+metadata:
+  annotations:
+    meta.upbound.io/example-id: ons/v1alpha1/notificationtopic
+  labels:
+    testing.upbound.io/example-name: test_notification_topic
+  name: test-notification-topic
+spec:
+  forProvider:
+    compartmentId: ${var.compartment_id}
+    definedTags:
+      Operations.CostCenter: "42"
+    description: ${var.notification_topic_description}
+    freeformTags:
+      Department: Finance
+    name: ${var.notification_topic_name}

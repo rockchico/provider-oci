@@ -1,0 +1,19 @@
+apiVersion: dns.rockchico.dev/v1alpha1
+kind: TsigKey
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/tsigkey
+  labels:
+    testing.upbound.io/example-name: test_tsig_key
+  name: test-tsig-key
+spec:
+  forProvider:
+    algorithm: ${var.tsig_key_algorithm}
+    compartmentId: ${var.compartment_id}
+    definedTags: ${var.tsig_key_defined_tags}
+    freeformTags: ${var.tsig_key_freeform_tags}
+    name: ${var.tsig_key_name}
+    secretSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
