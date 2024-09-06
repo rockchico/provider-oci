@@ -14,6 +14,7 @@ import (
 	v1alpha1certificates "github.com/rockchico/provider-oci/apis/certificates/v1alpha1"
 	v1alpha1containerengine "github.com/rockchico/provider-oci/apis/containerengine/v1alpha1"
 	v1alpha1core "github.com/rockchico/provider-oci/apis/core/v1alpha1"
+	v1alpha1database "github.com/rockchico/provider-oci/apis/database/v1alpha1"
 	v1alpha1dns "github.com/rockchico/provider-oci/apis/dns/v1alpha1"
 	v1alpha1events "github.com/rockchico/provider-oci/apis/events/v1alpha1"
 	v1alpha1file "github.com/rockchico/provider-oci/apis/file/v1alpha1"
@@ -41,6 +42,7 @@ func init() {
 		v1alpha1certificates.SchemeBuilder.AddToScheme,
 		v1alpha1containerengine.SchemeBuilder.AddToScheme,
 		v1alpha1core.SchemeBuilder.AddToScheme,
+		v1alpha1database.SchemeBuilder.AddToScheme,
 		v1alpha1dns.SchemeBuilder.AddToScheme,
 		v1alpha1events.SchemeBuilder.AddToScheme,
 		v1alpha1file.SchemeBuilder.AddToScheme,

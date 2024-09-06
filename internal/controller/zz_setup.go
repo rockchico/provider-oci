@@ -76,6 +76,7 @@ import (
 	volumegroup "github.com/rockchico/provider-oci/internal/controller/core/volumegroup"
 	volumegroupbackup "github.com/rockchico/provider-oci/internal/controller/core/volumegroupbackup"
 	vtap "github.com/rockchico/provider-oci/internal/controller/core/vtap"
+	autonomousdatabase "github.com/rockchico/provider-oci/internal/controller/database/autonomousdatabase"
 	record "github.com/rockchico/provider-oci/internal/controller/dns/record"
 	resolver "github.com/rockchico/provider-oci/internal/controller/dns/resolver"
 	resolverendpoint "github.com/rockchico/provider-oci/internal/controller/dns/resolverendpoint"
@@ -219,6 +220,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		volumegroup.Setup,
 		volumegroupbackup.Setup,
 		vtap.Setup,
+		autonomousdatabase.Setup,
 		record.Setup,
 		resolver.Setup,
 		resolverendpoint.Setup,

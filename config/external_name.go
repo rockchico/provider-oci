@@ -149,6 +149,8 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"oci_core_shape_management":                                             config.IdentifierFromProvider,
 	"oci_core_virtual_circuit":                                              config.IdentifierFromProvider,
 	"oci_core_vtap":                                                         config.IdentifierFromProvider,
+	"oci_database_autonomous_database":                                      config.IdentifierFromProvider,
+	
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

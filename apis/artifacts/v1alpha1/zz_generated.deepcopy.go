@@ -9,7 +9,6 @@
 package v1alpha1
 
 import (
-	"github.com/crossplane/crossplane-runtime/apis/common/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -47,16 +46,6 @@ func (in *ContainerConfigurationInitParameters) DeepCopyInto(out *ContainerConfi
 		in, out := &in.CompartmentID, &out.CompartmentID
 		*out = new(string)
 		**out = **in
-	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.IsRepositoryCreatedOnFirstPush != nil {
 		in, out := &in.IsRepositoryCreatedOnFirstPush, &out.IsRepositoryCreatedOnFirstPush
@@ -150,16 +139,6 @@ func (in *ContainerConfigurationParameters) DeepCopyInto(out *ContainerConfigura
 		*out = new(string)
 		**out = **in
 	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.IsRepositoryCreatedOnFirstPush != nil {
 		in, out := &in.IsRepositoryCreatedOnFirstPush, &out.IsRepositoryCreatedOnFirstPush
 		*out = new(bool)
@@ -246,16 +225,6 @@ func (in *ContainerRepositoryInitParameters) DeepCopyInto(out *ContainerReposito
 		in, out := &in.CompartmentID, &out.CompartmentID
 		*out = new(string)
 		**out = **in
-	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.DefinedTags != nil {
 		in, out := &in.DefinedTags, &out.DefinedTags
@@ -502,16 +471,6 @@ func (in *ContainerRepositoryParameters) DeepCopyInto(out *ContainerRepositoryPa
 		in, out := &in.CompartmentID, &out.CompartmentID
 		*out = new(string)
 		**out = **in
-	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.DefinedTags != nil {
 		in, out := &in.DefinedTags, &out.DefinedTags
@@ -1024,16 +983,6 @@ func (in *RepositoryInitParameters) DeepCopyInto(out *RepositoryInitParameters) 
 		*out = new(string)
 		**out = **in
 	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.DefinedTags != nil {
 		in, out := &in.DefinedTags, &out.DefinedTags
 		*out = make(map[string]*string, len(*in))
@@ -1224,16 +1173,6 @@ func (in *RepositoryParameters) DeepCopyInto(out *RepositoryParameters) {
 		in, out := &in.CompartmentID, &out.CompartmentID
 		*out = new(string)
 		**out = **in
-	}
-	if in.CompartmentIDRef != nil {
-		in, out := &in.CompartmentIDRef, &out.CompartmentIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CompartmentIDSelector != nil {
-		in, out := &in.CompartmentIDSelector, &out.CompartmentIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.DefinedTags != nil {
 		in, out := &in.DefinedTags, &out.DefinedTags
